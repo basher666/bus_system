@@ -8,7 +8,7 @@ typedef struct
 typedef struct
 {
   stop_name route[100];
-  int no_stop;
+  int num_stop;
 }_route;
 
 typedef struct
@@ -43,15 +43,18 @@ void readstops()
   fptr=fopen("stops.txt","r");
   if(fptr!=NULL)
     {
-      
       while((read = getline(&line, &len, fptr)) != -1)
 	{
 	  st_name=strtok(line," ,.-\n");
-	  strcpy(stops.nam[stops.no_stop].name,st_name);
+	  strcpy(stops.nam[stops.no_stop++].name,st_name);
+
 	}
     }
   fclose(fptr);  
 }
+
+
+
 void readroute()
 {
   FILE *fptr;
@@ -77,7 +80,7 @@ void readroute()
 	      stname=strtok(NULL," ,.-");
 	      stop_no++;
 	    }
-	  routes.no[route_no].no_stop=stop_no;
+	  routes.no[route_no].num_stop=stop_no;
 	  route_no++;
 	}
       routes.no_route=route_no;
@@ -87,6 +90,7 @@ void readroute()
 void print_all_stops()
 {
   int i,j;
+  printf("STOPS\n");
   for(i=0;i<stops.no_stop;i++)
     {
       printf("%d.%s\n",i+1,stops.nam[i].name);
@@ -100,19 +104,60 @@ void print_all_routes()
   for(i=0;i<routes.no_route;i++)
     {
       printf("route no %d -->  ",i+1);
-      for(j=0;j<routes.no[i].no_stop;j++)
+      for(j=0;j<routes.no[i].num_stop;j++)
 	{
 	  printf("%d-%s  ",j,routes.no[i].route[j].name);
 	}
     }
 }
+
+void routes_between_stops()
+{
+  int i,j,k,f;
+  char start[100],des[100];
+  printf("Enter Starting and Destination Bus stop:\n");
+  printf("Starting Bus Stop:");
+  scanf("%s",start);
+  printf("Destination Bus Stop:");
+  scanf("%s",des);
+  printf("Route No. -- Bus Start from -- Bus Goes to\n");
+  for(i=0;i<routes.no_route;i++)
+    {
+      f=0;
+      for(j=0;j<routes.no[i].num_stop;j++)
+	{
+	  if(strcmp(routes.no[i].route[j].name,start)==0)
+	    {
+	      for(k=j+1;k<routes.no[i].num_stop;k++)
+		{
+		  if(strcmp(routes.no[i].route[k].name,des)==0)
+		    {
+		      f=1;
+		      break;
+		    }
+		}
+	      if(f==1)
+		break;
+	    }
+	}
+      if(f==1)
+	{
+	  printf("%d     -----     %s   -----   %s \n",i+1,routes.no[i].route[0].name,routes.no[i].route[routes.no[i].num_stop-1].name);
+	}
+    }
+
+}
+
 int main()
 {
   initialize();
   readstops();
+  
   print_all_stops();
+  
   readroute();
   print_all_routes();
+  
   printf("Welcome to IIT Kharagpur bus service system \n");
   printf("HOME\n");
   printf("1.Get bus routes between two stops\n");
@@ -123,5 +168,5 @@ int main()
   printf("6.Check availability\n");
   printf("7.Pickup and drop facility between kharagpur railway station and IIT KGP");
   printf("8.Register a complaint");
-
+  routes_between_stops();
 }
