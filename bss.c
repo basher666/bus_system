@@ -217,6 +217,22 @@ void stops_in_route()
     }
 }
 
+void complaint()
+{
+  FILE *fptr;
+  char name[100];
+  char complaint[5000];
+  fptr=fopen("complaints.txt","a");
+  
+  printf("Enter your name\n");
+  fgets(name,100,stdin);
+  printf("Write your complaint in a line(under 5000 characters) \n");
+  fgets(name,5000,stdin);
+  
+  fprintf(fptr,"%s",name);
+  fprintf(fptr,"%s",complaint);
+  fclose(fptr);
+}
 int main()
 {
   initialize();
@@ -226,6 +242,7 @@ int main()
   
   readroute();
   print_all_routes();
+  complaint();
   routes_through_stop();
   stops_in_route();
   printf("Welcome to IIT Kharagpur bus service system \n");
