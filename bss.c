@@ -4,10 +4,11 @@
 typedef struct
 {
   char name[100];
-}stop_name;
+  char time[100];
+}stop_det;
 typedef struct
 {
-  stop_name route[100];
+  stop_det route[100];
   int num_stop;
 }_route;
 
@@ -20,7 +21,7 @@ typedef struct
 _routes routes;
 typedef struct
 {
-  stop_name nam[100];
+  stop_det nam[100];
   int no_stop;
 }_stops;
 
@@ -72,11 +73,27 @@ void readroute()
 	{
 	  printf("%s",line);
 	  stname=strtok(line," ,.-\n");
+	  
 	  stop_no=0;
+	  
 	  while(stname!=NULL)
 	    {
+	      if(stop_no==0)
+		{
+		  strcpy(routes.no[route_no].route[stop_no].name,stname);
+		  stname=strtok(NULL," ,.-\n");
+		  strcpy(routes.no[route_no].route[stop_no].time,stname);
+		  stname=strtok(NULL," ,.-\n");
+		  stop_no++;
+		  continue;
+		}
 	      strcpy(routes.no[route_no].route[stop_no].name,stname);
-	      printf("%s\n",routes.no[route_no].route[stop_no].name);
+	      printf("%s-",routes.no[route_no].route[stop_no].name);
+	      
+	      stname=strtok(NULL," ,.-\n");
+	      strcpy(routes.no[route_no].route[stop_no].time,stname);
+	      printf("%s\n",routes.no[route_no].route[stop_no].time);
+	      
 	      stname=strtok(NULL," ,.-\n");
 	      stop_no++;
 	    }
@@ -161,6 +178,44 @@ void routes_between_stops()
     }
 
 }
+void routes_through_stop()
+{
+  int i,j;
+  char st[100];
+  printf("Enter Bus Stop name to find routes:\n");
+  get_bus_stop(st);
+  int f;
+  for(i=0;i<routes.no_route;i++)
+    {
+      f=0;
+      
+      for(j=0;j<routes.no[i].num_stop;j++)
+	{
+	  if(strcmp(routes.no[i].route[j].name,st)==0)
+	    {
+	      f=1;
+	      break;
+	    }
+	}
+      if(f==1)
+	{
+	  printf("Route NO.  ---   Bus start from ---  Bus goes to  --- Time\n");
+	  printf("%d  -----   %s  ---  %s  ---  %s\n",i+1,routes.no[i].route[0].name,routes.no[i].route[routes.no[i].num_stop-1].name,routes.no[i].route[j].time);
+	}
+    }
+}
+
+void stops_in_route()
+{
+  int a,i;
+  printf("Enter Route No (between 1 and %d):\n",routes.no_route);
+  scanf("%d",&a);
+  printf("Sl. No. ------- Bus Stop ------ Time\n");
+  for(i=0;i<routes.no[a].num_stop;i++)
+    {
+      printf("%d  ------ %s  ------- %s \n",i+1,routes.no[a].route[i].name,routes.no[a].route[i].time);
+    }
+}
 
 int main()
 {
@@ -171,7 +226,8 @@ int main()
   
   readroute();
   print_all_routes();
-  
+  routes_through_stop();
+  stops_in_route();
   printf("Welcome to IIT Kharagpur bus service system \n");
   printf("HOME\n");
   printf("1.Get bus routes between two stops\n");
