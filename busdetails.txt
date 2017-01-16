@@ -1,2 +1,2 @@
-LLR_Hall MS_Hall RK_Hall RP_Hall
-Azad_Hall Nehru_Hall Patel_Hall LBS_Hall MMM_Hall
+LLR_Hall 8:00 MS_Hall 8:10 RK_Hall 8:15 RP_Hall 8:20
+Azad_Hall 8:05 Nehru_Hall 8:10 Patel_Hall 8:15 LBS_Hall 8:25 MMM_Hall 8:30
