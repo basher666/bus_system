@@ -225,12 +225,14 @@ void complaint()
   fptr=fopen("complaints.txt","a");
   
   printf("Enter your name\n");
+  fgets(name,100,stdin);  
   fgets(name,100,stdin);
-  printf("Write your complaint in a line(under 5000 characters) \n");
-  fgets(name,5000,stdin);
-  
   fprintf(fptr,"%s",name);
-  fprintf(fptr,"%s",complaint);
+  
+  printf("Write your complaint in a line(under 5000 characters) \n");
+  fgets(complaint,5000,stdin);  
+  fprintf(fptr,"%s\n \n",complaint);
+  
   fclose(fptr);
 }
 int main()
@@ -293,6 +295,7 @@ int main()
       else if(a==8)
 	{
 	  complaint();
+	  f=1;
 	}
       else if(a==9)
 	{
