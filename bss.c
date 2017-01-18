@@ -65,7 +65,7 @@ void readroute()
     {
       while((read = getline(&line, &len, fptr)) != -1)
 	{
-	  printf("%s",line);
+	  //printf("%s",line);
 	  stname=strtok(line," ,.-\n");
 	  
 	  stop_no=0;
@@ -82,11 +82,11 @@ void readroute()
 		  continue;
 		}
 	      strcpy(routes.no[route_no].route[stop_no].name,stname);
-	      printf("%s-",routes.no[route_no].route[stop_no].name);
+	      //printf("%s-",routes.no[route_no].route[stop_no].name);
 	      
 	      stname=strtok(NULL," ,.-\n");
 	      strcpy(routes.no[route_no].route[stop_no].time,stname);
-	      printf("%s\n",routes.no[route_no].route[stop_no].time);
+	      //printf("%s\n",routes.no[route_no].route[stop_no].time);
 	      
 	      stname=strtok(NULL," ,.-\n");
 	      stop_no++;
@@ -126,7 +126,7 @@ void print_all_routes()
       printf("route no %d -->  ",i+1);
       for(j=0;j<routes.no[i].num_stop;j++)
 	{
-	  printf("%d-%s  ",j,routes.no[i].route[j].name);
+	  printf("%d-%s  ",j+1,routes.no[i].route[j].name);
 	}
       printf("\n");
     }
@@ -184,6 +184,7 @@ void routes_through_stop()
   char st[100];
   printf("Enter Bus Stop name to find routes:\n");
   get_bus_stop(st);
+  printf("Route NO.  ---   Bus start from ---  Bus goes to  --- Time\n");
   int f;
   for(i=0;i<routes.no_route;i++)
     {
@@ -199,8 +200,7 @@ void routes_through_stop()
 	}
       if(f==1)
 	{
-	  printf("Route NO.  ---   Bus start from ---  Bus goes to  --- Time\n");
-	  printf("%d  -----   %s  ---  %s  ---  %s\n",i+1,routes.no[i].route[0].name,routes.no[i].route[routes.no[i].num_stop-1].name,routes.no[i].route[j].time);
+	  printf("%d  -----------   %s  --------  %s  -----  %s\n",i+1,routes.no[i].route[0].name,routes.no[i].route[routes.no[i].num_stop-1].name,routes.no[i].route[j].time);
 	}
     }
 }
@@ -213,7 +213,7 @@ void stops_in_route()
   printf("Sl. No. ------- Bus Stop ------ Time\n");
   for(i=0;i<routes.no[a].num_stop;i++)
     {
-      printf("%d  ------ %s  ------- %s \n",i+1,routes.no[a].route[i].name,routes.no[a].route[i].time);
+      printf("%d  ----------- %s  ------- %s \n",i+1,routes.no[a].route[i].name,routes.no[a].route[i].time);
     }
 }
 
