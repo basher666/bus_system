@@ -28,10 +28,6 @@ typedef struct
 _stops stops;
 
 
-void initialize()
-{
-  stops.no_stop=0;
-}
 
 void readstops()
 {
@@ -53,8 +49,6 @@ void readstops()
     }
   fclose(fptr);  
 }
-
-
 
 void readroute()
 {
@@ -104,6 +98,15 @@ void readroute()
     }
   fclose(fptr);
 }
+
+void initialize()
+{
+  stops.no_stop=0;
+  routes.no_route=0;
+  readstops(); 
+  readroute();
+}
+
 void print_all_stops()
 {
   int i,j;
@@ -125,6 +128,7 @@ void print_all_routes()
 	{
 	  printf("%d-%s  ",j,routes.no[i].route[j].name);
 	}
+      printf("\n");
     }
 }
 void get_bus_stop(char *s)
@@ -153,16 +157,11 @@ void routes_between_stops()
 	{
 	  if(strcmp(routes.no[i].route[j].name,start)==0)
 	    {
-	      //printf("%s == %s\n",routes.no[i].route[j].name,start);
-	      //printf("%s , %s\n",routes.no[i].route[routes.no[i].num_stop-1].name,des);
-	      //printf("%zu -- %zu\n",strlen(routes.no[i].route[routes.no[i].num_stop-1].name),strlen(des));
 	      for(k=j+1;k<routes.no[i].num_stop;k++)
 		{
-		  //printf("%s !== %s",routes.no[i].route[k].name,des);
 		  if(strcmp(routes.no[i].route[k].name,des)==0)
 		    {
 		      f=1;
- 
 		      break;
 		    }
 		}
@@ -176,7 +175,8 @@ void routes_between_stops()
 	  printf("%d     -----     %s   -----   %s \n",i+1,routes.no[i].route[0].name,routes.no[i].route[routes.no[i].num_stop-1].name);
 	}
     }
-
+ 
+  return;
 }
 void routes_through_stop()
 {
@@ -235,25 +235,73 @@ void complaint()
 }
 int main()
 {
+  int a,f=0;
   initialize();
-  readstops();
   
-  print_all_stops();
-  
-  readroute();
-  print_all_routes();
-  complaint();
-  routes_through_stop();
-  stops_in_route();
-  printf("Welcome to IIT Kharagpur bus service system \n");
-  printf("HOME\n");
-  printf("1.Get bus routes between two stops\n");
-  printf("2.Get all the bus routes\n");
-  printf("3.Get all the bus routes through a specific bus stop\n");
-  printf("4.Get all bus stops associated with a specific route\n");
-  printf("5.Booking\n");
-  printf("6.Check availability\n");
-  printf("7.Pickup and drop facility between kharagpur railway station and IIT KGP");
-  printf("8.Register a complaint");
-  routes_between_stops();
+  //print_all_routes();
+  //complaint();
+  //routes_through_stop();
+  //stops_in_route();
+  while(f==0)
+    {
+      printf("Welcome to IIT Kharagpur bus service system \n");
+      printf("HOME\n");
+      printf("1.Get bus routes between two stops\n");
+      printf("2.Get all the bus routes\n");
+      printf("3.Get all the bus routes through a specific bus stop\n");
+      printf("4.Get all bus stops associated with a specific route\n");
+      printf("5.Booking\n");
+      printf("6.Check availability\n");
+      printf("7.Pickup and drop facility between kharagpur railway station and IIT KGP\n");
+      printf("8.Register a complaint\n");
+      printf("9.exit\n");
+      scanf("%d",&a);
+
+      if(a==1)
+	{
+	  printf("counter\n");
+	  routes_between_stops();
+	  f=1;
+	}
+      else if(a==2)
+	{
+	  print_all_routes();
+	  f=1;
+	}
+      else if(a==3)
+	{
+	  routes_through_stop();
+	  f=1;
+	}
+      else if(a==4)
+	{
+	  stops_in_route();
+	  f=1;
+	}
+      else if(a==5)
+	{
+	  f=1;
+	}
+      else if(a==6)
+	{
+	  f=1;
+	}
+      else if(a==7)
+	{
+	  f=1;
+	}
+      else if(a==8)
+	{
+	  complaint();
+	}
+      else if(a==9)
+	{
+	  exit(0);
+	}
+      else
+	{
+	  printf("not a valid input. try again\n");
+	}
+    }
+  printf("Thank you for using IIT Kharagpur Bus Service System\n");
 }
