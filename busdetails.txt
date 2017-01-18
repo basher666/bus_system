@@ -1,2 +1,5 @@
 LLR_Hall 8:00 MS_Hall 8:10 RK_Hall 8:15 RP_Hall 8:20
 Azad_Hall 8:05 Nehru_Hall 8:10 Patel_Hall 8:15 LBS_Hall 8:25 MMM_Hall 8:30
+BRH 8:00 Azad_Hall 8:15 Patel_Hall 8:20 Nehru_Hall 8:25 LBS_Hall 8:35 MMM_Hall 8:40 LLR_Hall 8:45 JCB_Hall 8:55 HJB_Hall 9:00 SN_Hall 9:10 MT_Hall 9:15 Main_Building 9:20 Ramanujan_Complex 9:30 Agriculture_Department 9:35 Nalanda_Complex 9:40
+Gymkhana 8:00 VS_Hall 8:10 Gokhale_Hall 8:20 Main_Building 8:30 Ramanujan_Complex 8:35 Nalanda_Complex 8:45
+RK_Hall 8:00 RP_Hall 8:05 MS_Hall 8:15 Gymkhana 8:20 SN_Hall 8:30 MT_Hall 8:35 Main_Building 8:40
