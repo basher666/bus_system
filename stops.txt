@@ -18,4 +18,6 @@ Ramanujan_Complex
 RK_Hall
 RP_Hall
 SN_Hall
+Technology_Guest_House
+Tikka
 VS_Hall

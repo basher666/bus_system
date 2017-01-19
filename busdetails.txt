@@ -3,3 +3,10 @@ Azad_Hall 8:05 Nehru_Hall 8:10 Patel_Hall 8:15 LBS_Hall 8:25 MMM_Hall 8:30
 BRH 8:00 Azad_Hall 8:15 Patel_Hall 8:20 Nehru_Hall 8:25 LBS_Hall 8:35 MMM_Hall 8:40 LLR_Hall 8:45 JCB_Hall 8:55 HJB_Hall 9:00 SN_Hall 9:10 MT_Hall 9:15 Main_Building 9:20 Ramanujan_Complex 9:30 Agriculture_Department 9:35 Nalanda_Complex 9:40
 Gymkhana 8:00 VS_Hall 8:10 Gokhale_Hall 8:20 Main_Building 8:30 Ramanujan_Complex 8:35 Nalanda_Complex 8:45
 RK_Hall 8:00 RP_Hall 8:05 MS_Hall 8:15 Gymkhana 8:20 SN_Hall 8:30 MT_Hall 8:35 Main_Building 8:40
+SN_Hall 8:15 MT_Hall 8:20 Main_Building 8:25 Tikka 8:30 Ramanujan_Complex 8:35 Nalanda_Complex 8:40
+SN_Hall 8:10 Azad_Hall 8:15 Nehru_Hall 8:20 Patel_Hall 8:25 BRH 8:35
+Nalanda_Complex 4:25 Agriculture_Department 4:35 Ramanujan_Complex 4:40 Main_Building 4:50 SN_Hall 4:55 MT_Hall 5:00 Technology_Guest_House 5:10
+Nalanda_Complex 4:00 Agriculture_Department 4:05 Ramanujan_Complex 4:10 RK_Hall 4:15 RP_Hall 4:20 MS_Hall 4:30 LLR_Hall 4:40 MMM_Hall 4:45
+Nalanda_Complex 4:55 Ramanujan_Complex 5:00 SN_Hall 5:05 MT_Hall 5:10 HJB_Hall 5:15 JCB_Hall 5:20 Azad_Hall 5:30 Patel_Hall 5:35 Nehru_Hall 5:40 LBS_Hall 5:50
+Nalanda_Complex 4:50 Agriculture_Department 4:55 Ramanujan_Complex 4:58 Main_Building 5:00 Gokhale_Hall 5:05 VS_Hall 5:10 HJB_Hall 5:20
+Nalanda_Complex 5:10 Ramanujan_Complex 5:20 Tikka 5:30 RK_Hall 5:35 RP_Hall 5:40 MS_Hall 5:45 LLR_Hall 5:50 MMM_Hall 5:55 LBS_Hall 6:00
