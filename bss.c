@@ -126,7 +126,7 @@ void print_all_routes()
       printf("route no %d -->  ",i+1);
       for(j=0;j<routes.no[i].num_stop;j++)
 	{
-	  printf("%d-%s  ",j+1,routes.no[i].route[j].name);
+	  printf("%d-%s (%s) -> ",j+1,routes.no[i].route[j].name,routes.no[i].route[j].time);
 	}
       printf("\n");
     }
@@ -149,7 +149,7 @@ void routes_between_stops()
   get_bus_stop(start);
   printf("Destination Bus Stop:");
   get_bus_stop(des);
-  printf("Route No. -- Bus Start from -- Bus Goes to\n");
+  printf("Route No. -- Bus Start from ------- Bus Goes to\n");
   for(i=0;i<routes.no_route;i++)
     {
       f=0;
@@ -172,10 +172,9 @@ void routes_between_stops()
       if(f==1)
 	{
   
-	  printf("%d     -----     %s   -----   %s \n",i+1,routes.no[i].route[0].name,routes.no[i].route[routes.no[i].num_stop-1].name);
+	  printf("%d     -----  %s(at %s)   -----   %s(at %s) \n",i+1,routes.no[i].route[0].name,routes.no[i].route[0].time,routes.no[i].route[routes.no[i].num_stop-1].name,routes.no[i].route[routes.no[i].num_stop-1].time);
 	}
     }
- 
   return;
 }
 void routes_through_stop()
@@ -244,7 +243,7 @@ int main()
   //complaint();
   //routes_through_stop();
   //stops_in_route();
-  while(f==0)
+  while(1)
     {
       printf("Welcome to IIT Kharagpur bus service system \n");
       printf("HOME\n");
@@ -257,45 +256,42 @@ int main()
       printf("7.Pickup and drop facility between kharagpur railway station and IIT KGP\n");
       printf("8.Register a complaint\n");
       printf("9.exit\n");
+      printf("Enter your choice...\n");
       scanf("%d",&a);
 
       if(a==1)
 	{
-	  printf("counter\n");
 	  routes_between_stops();
-	  f=1;
 	}
       else if(a==2)
 	{
 	  print_all_routes();
-	  f=1;
 	}
       else if(a==3)
 	{
 	  routes_through_stop();
-	  f=1;
 	}
       else if(a==4)
 	{
 	  stops_in_route();
-	  f=1;
 	}
       else if(a==5)
 	{
-	  f=1;
+	  printf("functionality not yet implemented\n");
 	}
       else if(a==6)
 	{
-	  f=1;
+	  printf("functionality not yet implemented\n");
+
 	}
       else if(a==7)
 	{
-	  f=1;
+	  printf("functionality not yet implemented\n");
+  
 	}
       else if(a==8)
 	{
 	  complaint();
-	  f=1;
 	}
       else if(a==9)
 	{
