@@ -215,7 +215,44 @@ void stops_in_route()
       printf("%d  ----------- %s  ------- %s \n",i+1,routes.no[a].route[i].name,routes.no[a].route[i].time);
     }
 }
+void booking()
+{
+  char name[100];
+  char date[50];
+  char reason[5000];
+  FILE *fptr;
+  fptr=fopen("booking_requests.txt","a");
+  printf("Enter your name?\n");
+  fgets(name,100,stdin);
+  fgets(name,100,stdin);
+  fprintf(fptr,"%s",name);
+  printf("Enter the date(s) for which you want to book a bus- \n");
+  fgets(date,50,stdin);
+  fprintf(fptr,"%s",date);
+  printf("Enter the reason for booking the bus..\n");
+  fgets(reason,5000,stdin);
+  fprintf(fptr,"%s\n\n",reason);
+  printf("Your Booking request has been placed..\n\n\n");
+}
 
+void  special_events()
+{
+  FILE *fptr;
+  size_t len=0;
+  ssize_t read;
+  char *line=NULL;
+  
+  fptr=fopen("special_events.txt","r");
+  if(fptr!=NULL)
+    {
+      while((read=getline(&line,&len,fptr))!=-1)
+	{
+	  printf("%s",line);
+	}
+    }
+  printf("\n\n");
+  fclose(fptr);
+}
 void complaint()
 {
   FILE *fptr;
@@ -231,7 +268,7 @@ void complaint()
   printf("Write your complaint in a line(under 5000 characters) \n");
   fgets(complaint,5000,stdin);  
   fprintf(fptr,"%s\n \n",complaint);
-  
+
   fclose(fptr);
 }
 int main()
@@ -239,10 +276,6 @@ int main()
   int a,f=0;
   initialize();
   
-  //print_all_routes();
-  //complaint();
-  //routes_through_stop();
-  //stops_in_route();
   while(1)
     {
       printf("Welcome to IIT Kharagpur bus service system \n");
@@ -277,7 +310,7 @@ int main()
 	}
       else if(a==5)
 	{
-	  printf("functionality not yet implemented\n");
+	  booking();
 	}
       else if(a==6)
 	{
@@ -286,7 +319,7 @@ int main()
 	}
       else if(a==7)
 	{
-	  printf("functionality not yet implemented\n");
+	  special_events();
   
 	}
       else if(a==8)
