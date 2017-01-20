@@ -129,6 +129,7 @@ void print_all_routes()
 	  printf("%d-%s (%s) -> ",j+1,routes.no[i].route[j].name,routes.no[i].route[j].time);
 	}
       printf("\n");
+      printf("----------------------------------------------------------------------\n");
     }
 }
 void get_bus_stop(char *s)
@@ -149,7 +150,7 @@ void routes_between_stops()
   get_bus_stop(start);
   printf("Destination Bus Stop:");
   get_bus_stop(des);
-  printf("Route No. -- Bus Start from ------- Bus Goes to\n");
+  printf("Route No. -- Bus Start from -------------- Bus Goes to\n");
   for(i=0;i<routes.no_route;i++)
     {
       f=0;
@@ -172,7 +173,7 @@ void routes_between_stops()
       if(f==1)
 	{
   
-	  printf("%d     -----  %s(at %s)   -----   %s(at %s) \n",i+1,routes.no[i].route[0].name,routes.no[i].route[0].time,routes.no[i].route[routes.no[i].num_stop-1].name,routes.no[i].route[routes.no[i].num_stop-1].time);
+	  printf("%d      ---  %s(at %s)   -----   %s(at %s) \n",i+1,routes.no[i].route[0].name,routes.no[i].route[0].time,routes.no[i].route[routes.no[i].num_stop-1].name,routes.no[i].route[routes.no[i].num_stop-1].time);
 	}
     }
   return;
@@ -276,9 +277,9 @@ int main()
   int a,f=0;
   initialize();
   
+  printf("Welcome to IIT Kharagpur bus service system \n");
   while(1)
     {
-      printf("Welcome to IIT Kharagpur bus service system \n");
       printf("HOME\n");
       printf("1.Get bus routes between two stops\n");
       printf("2.Get all the bus routes\n");
