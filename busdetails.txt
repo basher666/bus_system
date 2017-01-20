@@ -9,4 +9,4 @@ Nalanda_Complex 4:25 Agriculture_Department 4:35 Ramanujan_Complex 4:40 Main_Bui
 Nalanda_Complex 4:00 Agriculture_Department 4:05 Ramanujan_Complex 4:10 RK_Hall 4:15 RP_Hall 4:20 MS_Hall 4:30 LLR_Hall 4:40 MMM_Hall 4:45
 Nalanda_Complex 4:55 Ramanujan_Complex 5:00 SN_Hall 5:05 MT_Hall 5:10 HJB_Hall 5:15 JCB_Hall 5:20 Azad_Hall 5:30 Patel_Hall 5:35 Nehru_Hall 5:40 LBS_Hall 5:50
 Nalanda_Complex 4:50 Agriculture_Department 4:55 Ramanujan_Complex 4:58 Main_Building 5:00 Gokhale_Hall 5:05 VS_Hall 5:10 HJB_Hall 5:20
-Nalanda_Complex 5:10 Ramanujan_Complex 5:20 Tikka 5:30 RK_Hall 5:35 RP_Hall 5:40 MS_Hall 5:45 LLR_Hall 5:50 MMM_Hall 5:55 LBS_Hall 6:00
+Nalanda_Complex 5:10 Ramanujan_Complex 5:20 Main_Building 5:25 Tikka 5:30 RK_Hall 5:35 RP_Hall 5:40 MS_Hall 5:45 LLR_Hall 5:50 MMM_Hall 5:55 LBS_Hall 6:00

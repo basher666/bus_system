@@ -1,3 +1,5 @@
+The Bus Service System is arrange for the following special events.
+------------------------------------------------------------------
 Spring Fest
 -------------------
 Date        | Kharagpur Station |  Gymkhana
